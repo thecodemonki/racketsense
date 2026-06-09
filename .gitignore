@@ -1,0 +1,12 @@
+venv/
+__pycache__/
+*.pkl
+*.mp4
+*.mov
+*.avi
+.env
+backend/data/raw/
+backend/data/processed/
+.DS_Store
+node_modules/
+.next/
