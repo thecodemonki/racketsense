@@ -136,4 +136,15 @@ def extract_features(window_landmarks, dominant="right"):
         knee_angle,           # 5. how bent the knees are
         wrist_velocity_peak,  # 6. max wrist speed
         wrist_trajectory,     # 7. up/down wrist movement
-        shoulder_width,       # 8. shoulder rotation prox
+        shoulder_width,       # 8. shoulder rotation proxy
+        wrist_x_traj,         # 9. left/right wrist movement
+    ])
+    return features
+
+
+def extract_features_batch(swing_windows, dominant="right"):
+    results = []
+    for item in swing_windows:
+        feats = extract_features(item["window"], dominant=dominant)
+        results.append({"frame_idx": item["frame_idx"], "features": feats})
+    return results
